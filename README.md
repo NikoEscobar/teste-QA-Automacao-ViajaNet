@@ -12,7 +12,9 @@
 
 ## Comando de execução
 
-- npx cypress open
+```bash
+npx cypress open
+```
 
 ## Relação de Scripts
 
