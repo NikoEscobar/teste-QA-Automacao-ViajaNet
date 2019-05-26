@@ -3,20 +3,20 @@
 
 ## Descrição
 
-- Scripts de automação de automação para entrevista para empresa ViajaNet
+- Scripts de automação para entrevista da empresa ViajaNet
 
 
 ## Relação de Scripts
 
 - Pasta cypress/integration
 
-0. script_Title
+0. fluxo-simples
 
 ## Controle de Automação
 
-- Pasta control - Quantidade total de Cenários: -
+- Pasta control - Quantidade total de Cenários: - 1
 
-- test_goal: - cenário
+- fluxo simples: - cenário 1
 
 
 ## Controle de Evidências

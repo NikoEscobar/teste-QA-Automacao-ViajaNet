@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://www.viajanet.com.br/",
+  "chromeWebSecurity": false,
+  "video": true,
+  "trashAssetsBeforeRuns": false
+}
