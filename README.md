@@ -10,6 +10,9 @@
 
 - Scripts de automação para entrevista da empresa ViajaNet
 
+## Comando de execução
+
+- npx cypress open
 
 ## Relação de Scripts
 
