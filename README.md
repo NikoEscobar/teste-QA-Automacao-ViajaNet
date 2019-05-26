@@ -1,7 +1,7 @@
 # teste-QA-Automacao-ViajaNet
 
 <p align="center">
-  <a href="https://player.vimeo.com/video/338487673">
+  <a href="https://player.vimeo.com/video/338497230">
     <img alt="Why Cypress Video" src="http://i.imgur.com/NFaqeHv.jpg" width="75%" height="75%" />
   </a>
 </p>

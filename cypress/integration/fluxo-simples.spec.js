@@ -71,6 +71,7 @@ context("Teste ViajaNet", () => {
       cy.get('.in-progress').should('contain','Reserva em processamento.')
       
       cy.get('.message-intro').scrollIntoView()
+      cy.wait(3000)
     });
   });
 });
