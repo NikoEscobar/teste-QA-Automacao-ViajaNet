@@ -50,24 +50,26 @@ Cypress.Commands.add("routeCheckoutPage", () => {
 });
 
 Cypress.Commands.add("FillAirlineTicketsSearch", mainPage => {
+  const {destination, departureDate, arrivalDate} = mainPage
+
   cy.get('#inptdestination')
-    .type(`${mainPage.destination.split(/\s+/).slice(0,2).join(' ')}`)
+    .type(`${destination.split(/\s+/).slice(0,2).join(' ')}`)
     .wait('@API_Tracking')
   
   cy.get('#ui-autocomplete')
-    .should('contain', `${mainPage.destination}`)
-    .contains(`${mainPage.destination}`)
+    .should('contain', `${destination}`)
+    .contains(`${destination}`)
     .click()
 
   cy.get('#departureDate')
     .click()
 
-  cy.get(`.day-${mainPage.departureDate}`)
+  cy.get(`.day-${departureDate}`)
     .click()
 
   cy.wait('@API_Tracking')
 
-  cy.get(`.day-${mainPage.arrivalDate}`)
+  cy.get(`.day-${arrivalDate}`)
     .click()
 });
 
@@ -77,66 +79,74 @@ Cypress.Commands.add('closeAllNotifications', () => {
 });
 
 Cypress.Commands.add('fillPassengerRegister', passenger => {
+  const {name, lastName, birth, gender} = passenger
+
   cy.get('#nome_0')
-    .type(`${passenger.name}`)
+    .type(`${name}`)
 
   cy.get('#lastName_0')
-    .type(`${passenger.lastName}`)
+    .type(`${lastName}`)
 
   cy.get('#birth_0')
-    .type(`${passenger.birth}`)
+    .type(`${birth}`)
 
   cy.get('[name="gender_0"]')
-    .select(`${passenger.gender}`)
+    .select(`${gender}`)
 });
 
 Cypress.Commands.add('fillCreditCard', creditCard => {
+  const {cardFlag, cardNumber, month, year, secureCode, cardName, cardCPF} = creditCard
+
   cy.get('#flag_card')
-    .select(`${creditCard.cardFlag}`)
+    .select(`${cardFlag}`)
 
   cy.get('#number_card-0')
-    .type(`${creditCard.cardNumber}`)
+    .type(`${cardNumber}`)
 
   cy.get('#month-0')
-    .select(`${creditCard.month}`,{force:true})
+    .select(`${month}`,{force:true})
 
   cy.get('#year-0')
-    .select(`${creditCard.year}`)
+    .select(`${year}`)
 
   cy.get('#codesecure_card-0')
-    .type(`${creditCard.secureCode}`)
+    .type(`${secureCode}`)
 
   cy.get('#name_card-0')
-    .type(`${creditCard.cardName}`)
+    .type(`${cardName}`)
 
   cy.get('#cpf_card-0')
-    .type(`${creditCard.cardCPF}`)
+    .type(`${cardCPF}`)
 });
 
 Cypress.Commands.add('fillAddress', address => {
-  cy.route('GET', `resources/api/location/GetAddressByCEP/${address.zipcode}*`)
+  const {zipcode, number, complement} = addres
+
+  cy.route('GET', `resources/api/location/GetAddressByCEP/${zipcode}*`)
     .as('getAddressByCEP')
 
   cy.get('#zipcode-0')
-    .type(`${address.zipcode}`)
+    .type(`${zipcode}`)
     .blur()
   
   cy.wait('@getAddressByCEP')
 
   cy.get('#number_address-0')
-    .type(`${address.number}`)
+    .type(`${number}`)
 
   cy.get('#complement-0')
-    .type(`${address.complement}`)
+    .type(`${complement}`)
 });
 
 Cypress.Commands.add('fillContact', passenger => {
+  const {email, phoneNumber} = passenger
+
   cy.get('#contact_email')
-    .type(`${passenger.email}`)
+    .type(`${email}`)
 
   cy.get('#contact_email_confirm')
-    .type(`${passenger.email}`)
+    .type(`${email}`)
 
   cy.get('#contact_phonenumber_0')
-    .type(`${passenger.phoneNumber}`)
+    .type(`${phoneNumber}`)
 });

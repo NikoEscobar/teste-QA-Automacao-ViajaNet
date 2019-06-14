@@ -1,4 +1,4 @@
-import dataMass,{mainPage, passenger, creditCard, address} from '../fixtures/dataMass'
+import {mainPage, passenger, creditCard, address} from '../fixtures/dataMass'
 
 context("Teste ViajaNet", () => {
 
